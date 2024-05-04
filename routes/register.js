@@ -1,8 +1,17 @@
 const router = require('express').Router();
 
-const registerController = require('../controllers/register');
 
-router.route('/login')
-    // .all(middlewares)
+const registerController = require('../controllers/register');
+const { validateResult } = require('../middlewares/register');
+const { validateUserInput } = require('../validations/register');
+
+router.route('/register')
     .get(registerController.getRegister)
-    .post(registerController.register)
+    .post(
+        validateUserInput,
+        // validateResult,
+        registerController.register
+    )
+
+
+module.exports = router;

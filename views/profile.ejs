@@ -1,0 +1,19 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+        <div>
+            <p><strong>Username: </strong><%= user.username %></p>
+            <p><strong>Email: </strong><%= user.email %></p>
+        </div>
+        <form action="/api/v1/update/user-profile" method="POST">
+            <button type="submit">Update Profile</button>
+        </form>
+        <form action="/api/v1/logout" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+
+<%- include('./includes/end.ejs') %>
